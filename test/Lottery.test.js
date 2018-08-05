@@ -105,8 +105,10 @@ describe('Lottery Contract',()=>{
      const players = await lottery.methods.getPlayers().call({
       from: accounts[0]
     });
-
     assert.equal(0, players.length);
+
+    const ba = await web3.eth.getBalance(lottery.options.address);
+    assert.equal(0, ba);
   });
 
 });
